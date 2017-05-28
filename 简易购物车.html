@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	.red{
+		background: red;
+	}
+	.green{
+		background: green;
+	}
+	li{
+		height: 30px;
+		margin-top: 10px;
+		width: 200px;
+	}
+</style>
+<body>
+	<div id="app">
+		<ul>
+			<li v-for="obj in arr" @click="change(obj)" :class="{red:obj.flag,green:!obj.flag}">{{obj.name}},{{obj.price}}</li>
+		</ul>
+		<hr>
+		<span>{{total()}}</span>
+	</div>
+	<script src="vue.js"></script>
+	<script>
+		var vm = new Vue({
+			el:'#app',
+			data:{
+				arr:[{name:'aaa',price:'234',flag:false},
+					{name:'bbb',price:'111',flag:false},
+					{name:'ccc',price:'222',flag:false},
+					{name:'ddd',price:'333',flag:false},
+					{name:'eee',price:'444',flag:false}]
+			},
+			methods:{
+				total:function(){
+					var total = 0;
+					for(var i=0;i<this.arr.length;i++){
+						if(this.arr[i].flag){
+							total +=parseInt(this.arr[i].price);
+						}
+					}
+					return total;
+				},
+				change:function(obj){
+					obj.flag=!obj.flag;
+				}
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="app">
+		<!-- <li v-for="(val,index) in arr" >{{val + ',' + index}}</li> -->
+		<!-- <li v-for="(val,index) in arr" >{{val}},{{index}}</li> -->
+		<li v-for="(val,index) in arr" v-text="val + ',' + index"></li>
+	</ul>
+	<script src="vue.js"></script>
+	<script>
+		var vm = new Vue({
+			el:'#app',//一个作用域范围
+			data:{
+				arr:[1,2,3,4]
+			}
+		});
+	</script>
+</body>
+</html>

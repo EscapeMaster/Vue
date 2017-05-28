@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="aa">
+		{{aa}}
+	</div>
+	<script src="vue.js"></script>
+	<script>
+		var vm = new Vue({
+			el:'#app',//一个作用域范围
+			data:{
+				msg:'123',//相当于变量
+				aa:''
+			}
+		});
+	</script>
+</body>
+</html>
