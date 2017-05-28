@@ -6,10 +6,19 @@
 </head>
 <body>
 	<div id="app">
-		<input type="text" v-model="aa">
-		{{aa}}
-		直接按索引操作数组值就是不变 实际上是变了
-		Vue.set(vm.arr,索引,要变成的数)
+		<div v-if="show">
+			<h1>hhhh</h1>
+			<p>pppp</p>
+			没有DOM结构
+		</div>
+		<div v-else>
+			<p>dasdasd</p>
+			v-else智能在v-if后面用
+		</div>
+		<div v-show="show">
+			<p>eqweqwe</p>
+			还有DOM结构
+		</div>
 	</div>
 	<script src="vue.js"></script>
 	<script>
@@ -18,7 +27,8 @@
 			data:{
 				msg:'123',//相当于变量
 				aa:'',
-				arr:[1,2,3,4,5]
+				arr:[1,2,3,4,5],
+				show:true
 			}
 		});
 	</script>
