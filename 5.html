@@ -6,19 +6,28 @@
 </head>
 <body>
 	<div id="app">
-		<div v-if="show">
+		<div>
+		<template v-if="show">
 			<h1>hhhh</h1>
 			<p>pppp</p>
-			没有DOM结构
+		</template>
+			<p>dasdasd</p>
+			没有DOM结构 不频繁切换
 		</div>
-		<div v-else>
+		<!-- <div v-else>
 			<p>dasdasd</p>
 			v-else智能在v-if后面用
 		</div>
 		<div v-show="show">
 			<p>eqweqwe</p>
-			还有DOM结构
-		</div>
+			还有DOM结构   频繁切换
+		</div> -->
+		标签混合循环 一行P一行H 为了不影响代码结构
+		@keyup.enter 回车事件   @keyup.65.65 = "add"   @keyup.shift 按住shift再按别的触发
+		<template v-for="n in 3">
+			<p>111</p>
+			<h2>222</h2>
+		</template>
 	</div>
 	<script src="vue.js"></script>
 	<script>
@@ -28,7 +37,7 @@
 				msg:'123',//相当于变量
 				aa:'',
 				arr:[1,2,3,4,5],
-				show:true
+				show:false
 			}
 		});
 	</script>
