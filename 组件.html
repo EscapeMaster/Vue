@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div id="app">
+	<demo :m="msg" dd="yyy">
+		<p slot="title">biaoti</p>
+		<p slot="content">neirong</p>
+	</demo>
+	<!-- <demo dd="yyy"></demo> -->
+</div>
+	<script src="vue.js"></script>
+	<script type="text/x-template" id="temp">
+		<div>
+			<h1>{{m}} {{dd}}</h1>
+			<slot name="title"></slot><!-- 往组件里传的标签在哪 一个占位标签 可以设置默认值-->
+			<h1>ddd</h1>
+			<slot name="content"></slot>
+		</div><!-- 子标签只能有一个 -->
+	</script>
+	<script>
+	// Vue.component('demo',{
+	// 	template:'<h1>hhhhhhhh</h1>'
+	// });//全局的  写下面报错 从上往下执行 先声明
+		new Vue({
+			el:'#app',
+			data:{
+				msg:'1233'
+			},
+			components:{
+				demo:{
+					template:'#temp',
+					props:['m','dd']//代表当前组件接收谁  标签里的属性 
+				}
+			}
+		});
+	</script>
+</body>
+</html>

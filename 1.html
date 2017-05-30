@@ -8,8 +8,6 @@
 	<div id="app">
 		<input type="text" v-model="aa">
 		{{aa}}
-		直接按索引操作数组值就是不变 实际上是变了
-		Vue.set(vm.arr,索引,要变成的数)
 	</div>
 	<script src="vue.js"></script>
 	<script>
@@ -17,8 +15,7 @@
 			el:'#app',//一个作用域范围
 			data:{
 				msg:'123',//相当于变量
-				aa:'',
-				arr:[1,2,3,4,5]
+				aa:''
 			}
 		});
 	</script>

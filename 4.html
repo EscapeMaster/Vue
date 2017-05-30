@@ -27,11 +27,15 @@
 						return this.firstName +' ' + this.lastName;
 					},
 					set:function(val){//设置值的时候调用
-						console.log(val);
+						alert(val);
 					}
 				}
 			}
 		});
+		vm.$watch('firstName',function(newVal,oldVal){
+
+		});//相当于wacth在里面写
+		// vm.$el //相当于整个DOM元素
 	</script>
 </body>
 </html>

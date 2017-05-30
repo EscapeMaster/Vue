@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dialog</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.dialog-box{
+			width: 400px;
+			height: 300px;
+			border: 1px #ccc solid;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -200px;
+			margin-top: -150px;
+		}
+		.title{
+			height: 50px;
+			background: #00a5ff;
+			text-align: center;
+			line-height: 50px;
+		}
+		.title span{
+			float: right;
+		}
+	</style>
+</head>
+<body>
+<div id="app">
+	<button slot="login" @click="dailogShow=true">登录</button><button slot="reg" @click="regShow=true">注册</button>
+	<mydialog v-show="dailogShow" @close="close">
+		<h2 slot="title">登录</h2>
+
+		<div slot="content">
+			用户名：<input type="text"><br>
+			密码：	<input type="password">
+		</div>
+	</mydialog>
+	<mydialog v-show="regShow" @close="regShow = false">
+		<h2 slot="title">注册</h2>
+
+		<div slot="content">
+			用户名：<input type="text"><br>
+			密码：	<input type="password">
+		</div>
+	</mydialog>
+</div>
+	<script src="vue.js" ></script>
+	<script type="text/x-template" id="dialog">
+		<div class="dialog-box">
+			<div class="title">
+				<span @click="$emit('close')">X</span>
+				<slot name="title"></slot>
+			</div>
+			<div class="content">
+				<slot name="content"></slot>
+			</div>
+		</div>
+	</script>
+	<script>
+		new Vue({
+			el:'#app',
+			data:{
+				dailogShow:false,
+				regShow:false
+			},
+			components:{
+				mydialog:{
+					template:'#dialog'
+				}
+			},
+			methods:{
+				close:function(){
+					this.dailogShow=false;
+				}
+			}
+		});
+	</script>
+</body>
+</html>
